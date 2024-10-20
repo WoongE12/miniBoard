@@ -1,0 +1,175 @@
+body {
+	font-family: Arial, sans-serif;
+	color: #333;
+	margin: 0;
+	padding: 0;
+}
+
+.main {
+	width: 80%;
+	max-width: 800px;
+	margin: 140px auto 20px;
+	padding: 20px;
+	border: 1px solid #ddd;
+}
+
+.main h2{
+	margin-bottom: 5px;
+}
+
+.b_category input {
+    border: none;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.b_title input {
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.u_id input {
+    border: none;
+    font-size: 15px;
+    padding: 0 10px;
+}
+
+.u_date input {
+    border: none;
+    font-size: 15px;
+    padding: 0 10px;
+}
+
+.b_content textarea {
+	border: 1px solid #ddd;
+	font-size: 15px;
+	padding: 25px 15px;
+}
+
+.box-footer {
+	display: flex; /* Flexbox 레이아웃 활성화 */
+	justify-content: flex-end; /*우측으로 정렬*/
+	margin-top: 20px;
+}
+
+.box-footer button {
+	width: 50px;
+	height: 35px;
+	margin: 0 5px;
+	background-color: black;
+	color: white;
+	font-size: 15px;
+	cursor: pointer;
+	border: none;
+}
+
+.box-footer button:hover {
+	background-color: #e4e4e4;
+}
+
+.horizontal-line {
+    border: 1px solid #ddd;
+    margin: 30px 0;
+}
+
+
+
+
+
+
+
+
+.comment-container {
+    display: flex;
+    justify-content: center; 
+    margin-top: 20px; 
+}
+
+.comment-container textarea {
+    width: 600px;
+    height: 100px;
+    padding: 10px; 
+    font-size: 16px;
+    border: 1px solid #ddd; 
+    resize: vertical; /* 세로 방향으로 크기 조절 가능 */
+    margin-bottom: 10px; 
+}
+
+.comment-container button {
+    background-color: black; 
+    color: white; 
+    padding: 10px 20px; 
+    cursor: pointer;
+    margin-left: 10px; 
+}
+
+.comment-container button:hover {
+    background-color: #e4e4e4; 
+}
+
+
+#comments {
+    margin: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#comments div {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+#comments p {
+    margin: 0;
+    color: #333;
+}
+
+strong {
+    color: black;
+}
+
+form {
+    display: inline;
+}
+
+.btn {
+    padding: 5px 10px;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-warning {
+    background-color: black;
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: black;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #e4e4e4;
+}
+
+.cmt-date {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.update-content {
+	width: 100%;
+    height: 100px;
+    padding: 10px; 
+    font-size: 16px;
+    border: 1px solid #ddd; 
+    resize: vertical; /* 세로 방향으로 크기 조절 가능 */
+    margin-bottom: 10px; 
+}

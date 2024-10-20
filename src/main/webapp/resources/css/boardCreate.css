@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 80%;
+    max-width: 800px;
+    margin: 140px auto 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.horizontal-line {
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+.form-group {
+    display: flex;            /* Flexbox 레이아웃 활성화 */
+    justify-content: space-between; /* 좌우 공간을 균등하게 분배 */
+    align-items: center;      /* 수직 가운데 정렬 */
+}
+
+.b_category select {
+    margin-bottom: 10px;
+    font-size: 15px;
+    width: 120px;
+    height: 35px;
+    padding: 0 10px;
+}
+
+.b_title input {
+    border: 1px solid #ddd;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    padding: 0 15px;
+}
+
+.b_content textarea {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+    padding: 25px 15px;
+    width: 100%; /* 너비를 100%로 설정하여 입력 필드가 부모 요소를 채우도록 함 */
+}
+
+.box-title {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+.submitBtn {
+    margin-left: auto; /* 왼쪽 마진을 자동으로 설정하여 오른쪽 정렬 */
+}
+
+.submitBtn button {
+    width: 60px; /* 버튼 너비 */
+    height: 35px;
+    margin: 0 5px;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+}

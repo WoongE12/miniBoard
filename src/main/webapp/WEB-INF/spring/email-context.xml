@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context 
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 프로퍼티 파일의 속성값을 로드 -->
+    <!-- 
+    <context:property-placeholder location="classpath:/db-config/email.properties" />
+ 	-->
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+    <property name="host" value="smtp.naver.com"/>
+    <property name="port" value="465"/>
+    <property name="username" value="zzx5678@naver.com"/>
+    <property name="password" value="zzxhoo0420"/>
+    <property name="javaMailProperties">
+        <props>
+            <!-- SMTP 프로토콜 설정 -->
+            <prop key="mail.transport.protocol">smtp</prop>
+            <prop key="mail.smtp.auth">true</prop>
+            <prop key="mail.smtp.ssl.enable">true</prop> <!-- SSL 사용 -->
+            <prop key="mail.smtp.ssl.trust">smtp.naver.com</prop> <!-- 서버 인증서 신뢰 -->
+            <prop key="mail.debug">false</prop> <!-- 디버깅 활성화 -->
+        </props>
+    </property>
+	</bean>
+
+</beans>

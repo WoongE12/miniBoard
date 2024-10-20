@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.board.dao.BoardDao">
+
+	<!-- 게시글 생성 -->
+	<insert id="create">
+		INSERT INTO board(b_id, b_title, b_content,
+		b_category, b_view, u_id, b_del, b_date)
+		VALUES(board_num.NEXTVAL,
+		#{b_title}, #{b_content}, #{b_category}, #{b_view}, #{u_id}, #{b_del},
+		sysdate)
+	</insert>
+
+
+	<!-- 게시글 조회 -->
+	<select id="read" resultType="BoardDto">
+		select * from board where b_id =
+		#{b_id}
+	</select>
+
+
+	<!-- 게시글 수정 -->
+	<update id="update">
+		update board set b_category=#{b_category},b_title =
+		#{b_title},
+		b_content
+		=#{b_content} where b_id = #{b_id}
+	</update>
+
+
+	<!-- 게시글 삭제 -->
+	<delete id="delete">
+		delete from board where b_id = #{b_id}
+	</delete>
+
+	<!-- 게시글 조회수 -->
+	<update id="b_viewUpdate">
+		update board set b_view=b_view+1 where b_id=#{b_id}
+	</update>
+
+
+	<!-- 게시글 검색 -->
+	<select id="listSearch" resultType="com.board.dto.BoardDto">
+		SELECT
+		b.*,
+		COUNT(c.COMM_ID) AS reply_count
+		FROM
+		board b
+		LEFT JOIN
+		comments
+		c ON b.B_ID = c.B_ID AND c.COMM_DEL = 'N'
+		WHERE
+		1=1
+		<if test="bCategory != null and bCategory != ''">
+			AND b.B_CATEGORY = #{bCategory}
+		</if>
+		<if test="keyword != null and keyword != ''">
+			AND b.B_TITLE LIKE '%' || #{keyword} || '%'
+		</if>
+		GROUP BY
+		b.B_ID,
+		b.B_TITLE,
+		b.B_CONTENT,
+		b.B_CATEGORY,
+		b.B_VIEW,
+		b.U_ID,
+		b.B_DEL,
+		b.B_DATE
+		ORDER BY
+		b.B_ID DESC
+		OFFSET (#{page} - 1) *
+		#{perPageNum} ROWS
+		FETCH NEXT #{perPageNum} ROWS ONLY
+
+	</select>
+
+
+	<sql id='category'>
+		<if test="categoryType!=null"> and b_category = #{b_category}</if>
+	</sql>
+
+	<sql id="search">
+		<if test="searchKeyword != null"> AND bTitle LIKE '%' || #{searchKeyword} || '%' </if>
+	</sql>
+
+	<!-- 카테고리 및 검색 조건에 따른 전체 게시글 수 조회 -->
+	<select id="getTotalCountByCategory" resultType="int">
+		SELECT COUNT(*)
+		FROM board
+		<where>
+			<if test="bCategory != null and bCategory != ''">
+				AND b_category = #{bCategory}
+			</if>
+			<if test="keyword != null and keyword != ''">
+				AND b_title LIKE '%' || #{keyword} || '%'
+			</if>
+		</where>
+	</select>
+
+	<!-- 특정 사용자가 작성한 게시글 목록을 가져오는 쿼리 -->
+	<select id="getUserPosts" parameterType="string"
+		resultType="com.board.dto.BoardDto">
+		SELECT * FROM board
+		WHERE u_id = #{u_id}
+		ORDER BY b_date DESC
+	</select>
+
+	<!-- 최신 게시글 조회 -->
+	<select id="getLatestPosts" parameterType="int"
+		resultType="com.board.dto.BoardDto">
+    <![CDATA[
+    SELECT * 
+    FROM (
+        SELECT b.*, ROWNUM AS rnum 
+        FROM (
+            SELECT * 
+            FROM board 
+            ORDER BY b_date DESC
+        ) b 
+        WHERE ROWNUM <= 5
+    )
+    ]]>
+	</select>
+
+	<!-- 카테고리 게시글 조회 -->
+	<select id="getPostsByCategory" parameterType="string"
+		resultType="com.board.dto.BoardDto">
+		SELECT * FROM board
+		WHERE b_category = #{category}
+		ORDER BY
+		b_date DESC
+	</select>
+
+	<!-- 조회수 게시글 조회 -->
+	<select id="getPostsByViewCount" parameterType="int"
+		resultType="com.board.dto.BoardDto">
+    <![CDATA[
+    SELECT * 
+    FROM (
+        SELECT b.*, ROWNUM AS rnum 
+        FROM (
+            SELECT * 
+            FROM board 
+            ORDER BY b_view DESC
+        ) b 
+        WHERE ROWNUM <= #{limit}
+    )
+    ]]>
+	</select>
+
+</mapper>

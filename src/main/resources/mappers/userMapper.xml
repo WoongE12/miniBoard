@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.board.dao.UserDao">
+
+<!-- 유저 crud -->
+<insert id="insert">
+insert into users(
+	u_id, u_pw, u_nickname, u_name, u_gender, u_birthday, u_email, u_phoneNumber, u_address, u_joinDate, enabled
+) values(
+	#{u_id}, #{u_pw}, #{u_nickname}, #{u_name}, #{u_gender}, #{u_birthday}, #{u_email}, #{u_phoneNumber}, #{u_address}, sysdate, 1
+)
+</insert>
+
+<select id="selectUser" resultType="com.board.dto.UserDto">
+select * from users where u_id=#{u_id}
+</select>
+
+<select id="selectAll" resultType="com.board.dto.UserDto">
+select * from users order by u_id
+</select>
+
+<delete id="delete">
+delete from users where u_id=#{u_id, jdbcType=NVARCHAR}
+</delete>
+
+<update id="update">
+update users set u_nickname=#{u_nickname}, u_name=#{u_name}, u_gender=#{u_gender}, u_birthday=#{u_birthday}, u_email=#{u_email}, u_phoneNumber=#{u_phoneNumber}, u_address=#{u_address}
+ where u_id=#{u_id}
+</update>
+<update id="deactivate">
+update users set enabled = 0
+ where u_id=#{u_id}
+</update>
+<update id="updateImg">
+update users set u_profile_img = #{user_Img} where u_id=#{u_id}
+</update>
+
+
+<!-- 유저 정보 찾기 -->
+<select id="select_idInquiry_email" resultType="com.board.dto.UserDto">
+select * from users
+ where u_name=#{u_name} and u_email=#{u_email}
+</select>
+
+<select id="select_idInquiry_phone" resultType="com.board.dto.UserDto">
+select * from users
+ where u_name=#{u_name} and u_phoneNumber=#{u_phoneNumber}
+</select>
+
+<select id="phoneNumber_compare" resultType="boolean">
+select COUNT(*) from users where u_id=#{u_id} and u_phoneNumber=#{u_phoneNumber}
+</select>
+<select id="email_compare" resultType="boolean">
+select COUNT(*) from users where u_id=#{u_id} and u_email=#{u_email}
+</select>
+
+<update id="pw_update">
+update users set u_pw=#{encPassword, jdbcType=NVARCHAR}
+ where u_id=#{u_id, jdbcType=NVARCHAR}
+</update>
+
+<select id="getU_pwByU_id" parameterType="String" resultType="String">
+select u_pw from users where u_id = #{userId}
+</select>
+
+<!-- 
+매퍼에 없는 클래스를 요청하면 404에러가 난다
+-->
+
+</mapper>
+
+
+
+
+
+
+
+
+

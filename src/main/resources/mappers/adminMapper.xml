@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.board.dao.AdminDao">
+
+	<!-- 유저 crud -->
+	<select id="selectAll" resultType="com.board.dto.UserDto">
+		select * from users order by u_id
+	</select>
+
+	<select id="selectAllAuthorities" resultType="com.board.dto.AuthoritiesDto">
+		 SELECT * FROM authorities
+	</select>
+
+	<!-- 권한 업데이트 쿼리 추가 -->
+	<update id="updateAuthority" >
+		UPDATE authorities
+		SET authority = #{authority}
+		WHERE u_id = #{u_id}
+	</update>
+	<!-- 계정상태 업데이트 쿼리 추가 -->
+	 <update id="updateStatus">
+        UPDATE users
+        SET enabled = #{enabled}
+        WHERE u_id = #{u_id}
+    </update>
+
+	 <update id="updateUser">
+        UPDATE users
+        SET
+            u_nickname = #{u_nickname},
+            u_name = #{u_name},
+            u_gender = #{u_gender},
+            u_email = #{u_email},
+            u_phoneNumber = #{u_phoneNumber},
+            u_address = #{u_address},
+            u_birthday = #{u_birthday}
+        WHERE u_id = #{u_id}
+    </update>
+
+	<!-- 매퍼에 없는 클래스를 요청하면 404에러가 난다 -->
+
+</mapper>
+
+
+
+
+
+
+
+
+

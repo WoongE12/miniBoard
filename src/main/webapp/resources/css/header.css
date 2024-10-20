@@ -1,0 +1,255 @@
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: white;
+	box-shadow: 0 0 3px #8a8989;
+	z-index: 20;
+	color : #000000;
+	background-color: #ffffff;
+}
+
+.header_wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 60px;
+	padding: 0 16px;
+	position: relative;
+	max-width: 1300px; /* 전체 헤더의 최대 너비 제한 */
+	margin: 0 auto; /* 중앙 정렬 */
+}
+
+.header_start {
+	display: flex;
+	align-items: flex-end; /* 아래쪽 정렬 */
+	height: 100%; /* 전체 높이 차지 */
+	max-width: 200px; /* 메뉴의 최대 너비 제한 */
+	margin-right: 100px; /* 로고와의 간격을 더 넓히기 */
+	margin-bottom: 25px;
+}
+
+.header_start>ul {
+	display: flex;
+	list-style: none;
+}
+
+.header_start>ul>li {
+	margin-left: 25px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.header_start>ul>li:hover,
+.header_end a:hover	{
+	color: #054184;
+}
+
+
+.header_center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.header_center>img {
+    max-width: 100%; /* 부모 요소의 너비에 맞게 조정 */
+    height: auto; /* 비율 유지 */
+    max-height: 110px; /* 최대 높이 설정 (필요에 따라 조정 가능) */
+}
+
+.header_info {
+	margin: auto 0;
+}
+
+.header_end {
+	display: flex; 
+	align-items: flex-end; /* 아래쪽 정렬 */
+	height: 100%; /* 전체 높이 차지 */
+	max-width: 200px; /* 로그인 섹션 최대 너비 제한 */
+	margin-bottom: 25px; /* 로그인,회원가입   */
+}
+
+.header_end a {
+	text-decoration: none; /* 링크 밑줄 제거 */
+	color: #000000; /* 링크 색상 */
+	font-weight: normal; /* 글자 굵기 */
+	margin: 0 0 0 30px; /* 상, 우, 하, 좌 */ /* 로그인,회원가입  좌,우 */
+	font-weight: bold;
+}
+
+.header_end_myPage {
+	display: flex;
+	align-items: center;
+	margin-right: 0px;
+	margin-top: 60px;
+	
+	position: relative;
+}
+
+.header_end_myPage img {
+	margin-right: 10px;
+	width: 35px;
+	height: auto;
+	/* margin-left: 10px; */
+	border-radius: 50%;
+}
+
+.header_end_myPage a {
+	text-decoration: none; /* 링크의 기본 밑줄 제거 */
+	color: #000000; /* 기본 링크 색상 설정 */
+	font-weight: bold; /* 기본 글자 굵기 설정 (기본값) */
+	/* margin-right: 15px; */
+}
+/* 기본 버튼 스타일 */
+.header_end_myPage button {
+    background: none; /* 기본 배경 제거 */
+    border: none; /* 기본 테두리 제거 */
+    width: 24px; /* 버튼 너비 */
+    height: 24px; /* 버튼 높이 */
+    cursor: pointer; /* 포인터 커서 사용 */
+    background-size: cover; /* 이미지 크기에 맞게 조정 */
+    background-repeat: no-repeat; /* 이미지 반복 방지 */
+    margin-left: 3px; 
+    margin-top: 2px;
+}
+
+
+
+
+
+/* 미니 마이페이지 스타일 */
+.header_mini_myPage {
+	display: none; /* 기본적으로 숨김 */
+	
+	/* 마이페이지 위치 설정 */
+    position: absolute; /* .header_end_myPage를 기준으로 위치 설정 */
+    top: 12%; /* 기준 요소의 아래로 배치 */
+    left: 76%; /* 부모 요소와 수평 맞춤 */
+	
+	z-index: 9999; /* 가장 위로 배치되도록 설정 */
+	
+	width: 350px; /* 너비 설정 */
+	height: 140px; /* 높이 설정 */
+	background-color: #ffffff; /* 배경색을 하얀색으로 설정 */
+	display: flex; /* 내부 요소들을 수평으로 정렬 */
+	flex-direction: column; /* 세로 방향으로 정렬 */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* 그림자 효과 추가 */
+	border: 1px solid #ddd; /* 테두리 추가 (선택사항) */
+	position: fixed; /* 화면에 고정되도록 설정 */
+	
+	
+}
+
+.header_mini_myPage_top, 
+.header_mini_myPage_bottom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+}
+
+/* 미니 마이페이지 상단 스타일 */
+.header_mini_myPage_top {
+	height: 60%;
+	border-bottom: 1px solid #ddd; /* 상단과 하단을 나누는 선 */
+	padding: 5px 0; /* 상단 영역의 상하 여백 */
+}
+
+.header_mini_myPage_top a {
+	text-decoration: none; /* 링크의 기본 밑줄 제거 */
+	color: #000; /* 기본 링크 색상 설정 */
+}
+.header_mini_myPage_top img {
+	margin-right: 10px; /* 이미지와 다음 요소 사이의 간격 */
+	width: 50px;
+	height: auto;
+	border-radius: 50%;
+}
+.header_mini_myPage_top p {
+	margin: 0 30px; /* 텍스트와 다음 요소 사이의 간격 */
+	color:black;
+}
+
+/* 상단에 있는 유저 정보를 담고 있는 p 태그 스타일 */
+.user-info {
+	font-size: 18px; /* 글씨 크기 조정 */
+	font-weight: bold; /* 글씨 굵기 조정 */
+	margin-bottom: 6px !important; /* 아래쪽 여백 추가 */
+}
+/* 상단에 있는 이메일 정보를 담고 있는 p 태그 스타일 */
+.email-info {
+	font-size: 12px; /* 글씨 크기 작게 조정 */
+}
+
+/* 미니 마이페이지 하단 스타일 */
+.header_mini_myPage_bottom {
+	height: 40%;
+	display: flex; /* Flexbox를 사용하여 자식 요소를 수평으로 정렬 */
+	align-items: center; /* 세로 방향으로 중앙 정렬 */
+	justify-content: space-between; /* 자식 요소 사이에 공간을 균등하게 배분 */
+	padding: 0 10px; /* 좌우 여백 */
+	color:black;
+}
+
+.header_mini_myPage_bottom ul {
+	list-style-type: none; /* 기본 불릿 제거 */
+	margin: 0; /* 기본 여백 제거 */
+	padding: 0; /* 기본 패딩 제거 */
+	display: flex; /* 리스트 아이템을 수평으로 정렬 */
+	gap: 10px; /* 리스트 아이템 사이의 간격 */
+	
+}
+.header_mini_myPage_bottom li {
+	margin: 0; /* 기본 여백 제거 */
+	padding: 0; /* 기본 패딩 제거 */
+	position: relative; /* 선을 추가하기 위한 relative 위치 설정 */
+	padding-right: 20px; /* 오른쪽 여백 추가 */
+	font-size: 14px;
+	color:black;
+}
+.header_mini_myPage_bottom li:not(:last-child )::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1px; /* 선의 너비 */
+	height: 20px; /* 선의 높이 */
+	background-color: #ddd; /* 선의 색상 */
+}
+.header_mini_myPage_bottom > ul > li > a {
+    color: #000000; /* 글자 색을 검은색으로 설정 */
+    text-decoration: none; /* 밑줄 제거 */
+}
+.header_mini_myPage_bottom>ul>li>a:hover {
+	color: #007BFF; /* 버튼 호버 시 배경색 회색 */
+}
+
+.mini_myPage_button {
+	width: 85px; /* 버튼 너비 */
+	height: 35px; /* 버튼 높이 */
+	background-color: #000000; /* 버튼 배경색 */
+	border: 1px solid #ddd; /* 테두리 추가 (선택사항) */
+	cursor: pointer; /* 버튼에 마우스를 올렸을 때 포인터 커서 표시 */
+	font-size: 14px; /* 버튼 텍스트 크기 */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color:#ffffff;
+}
+.mini_myPage_button img {
+	margin-left: 4px; /* 텍스트와 아이콘 사이의 간격 */
+	width: 20px;
+	height: auto;
+}
+
+.mini_myPage_button:hover {
+	background-color: #eeeeee; /* 버튼 호버 시 배경색 회색 */
+	color: black;
+}

@@ -1,0 +1,158 @@
+/* #board 요소의 크기와 정렬 설정 */
+#board {
+    width: 1300px; /* 게시판의 너비 */
+    height: auto;
+    padding: 50px; /* 내부 여백 */
+    margin: 180px auto; /* 상단 여백과 좌우 중앙 정렬 */
+    background-color: #ffffff; /* 배경색 설정 */
+    text-align: left; /* 텍스트 좌측 정렬 */
+    border : 2px solid lightgray;
+}
+
+/* 게시판 제목 스타일 */
+#board h1 {
+    text-align: center; /* 제목 중앙 정렬 */
+    font-size: 36px; /* 폰트 크기 */
+    font-weight: 700;
+    margin-bottom: 30px; /* 제목 아래 여백 */
+}
+.board-header{
+	display: flex; /* Flexbox 사용 */
+	justify-content: space-between; /* 제목과 날짜를 좌우로 정렬 */
+	border-top: 2px solid black;
+}
+
+.board-header-kategorie{
+	font-weight: 700;
+	margin-left: 100px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	
+}
+
+.board-header-title{
+	font-weight: 700;
+	margin-right: 60px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	
+}
+.board-header-date{
+	font-weight: 700;
+	margin-right: 35px;
+	margin-bottom:	10px;
+	margin-top: 10px;
+	
+	
+}
+
+/* 게시글 목록 스타일 */
+.board-list {
+    list-style-type: none; /* 목록 스타일 제거 */
+    padding: 0; /* 내부 여백 제거 */
+}
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* 오른쪽으로 정렬 */
+    gap: 10px; /* 버튼 간의 간격 조정 */
+    margin-top: 20px; /* 상단 여백 추가 */
+    list-style-type: none; /* 목록 스타일 제거 */
+    padding: 0; /* 패딩 제거 */
+    /* border-top: 2px solid black; */
+}
+
+.button-write,
+.button-delete {
+    height: 50px;
+    width: 90px;
+    cursor: pointer; /* 마우스 커서 모양 */
+    background-color: black;
+    color: white;
+    text-align: center; /* 텍스트 수평 정렬 */
+    display: inline-flex; /* inline-flex로 요소를 처리 */
+    align-items: center; /* 수직 중앙 정렬 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    border-radius: 8px; /* 모서리를 둥글게 설정 */
+    float: right; /* 오른쪽으로 이동 */    
+    margin-left: 10px; /* 버튼 간의 간격 추가 */
+    
+}
+
+.button-write:hover,
+.button-delete:hover{
+	color: #fff;
+	background-color: #e4e4e4; 
+	
+}
+
+
+.board-typeItem {
+    height: 50px;
+    width: 100px;
+    cursor: pointer; /* 마우스 커서 모양 */
+    background-color: #fff;
+    margin-bottom: 30px; /* 항목 간의 간격 */
+    text-align: center; /* 텍스트 수평 정렬 */
+    line-height: 50px; /* 텍스트 수직 정렬을 위한 라인 높이 설정 */
+    display: inline-block; /* inline-block으로 요소를 처리 */
+    vertical-align: middle; /* 수직 가운데 정렬 */
+    /* border-bottom: 2px solid black; */
+}
+
+ul.board-list{
+	/* border-bottom: 2px solid black; */ 
+}
+
+.board-type{
+     text-align: center; /* 텍스트 정렬 */
+}
+
+/* 개별 게시글 항목 스타일 */
+.board-item {
+    display: flex; /* Flexbox 사용 */
+    justify-content: space-between; /* 제목과 날짜를 좌우로 정렬 */
+    padding: 20px; /* 항목의 내부 여백 */
+    margin-bottom: 15px; /* 항목 간의 간격 */
+    background-color: #f9f9f9; /* 항목의 배경색 */
+    cursor: pointer; /* 마우스 커서 모양 */
+    border: 2px solid transparent; /* 기본 상태에서 투명한 테두리 */
+    transition: background-color 0.3s, border 0.3s; /* 배경색과 테두리 전환 효과 */
+}
+
+/* 항목 hover 효과 */
+.board-item:hover {
+    background-color: #e6e6e6; /* 배경색 변경 */
+    border: 2px solid black; /* 테두리 색상 변경 */
+}
+
+
+
+/* 게시글 카데고리 스타일 */
+.board-kategorie{
+    font-size: 16px; /* 폰트 크기 */
+    font-weight: 500; /* 폰트 두께 */
+    color: #333333; /* 텍스트 색상 */
+    margin-left: 80px;
+}
+
+/* 게시글 제목 스타일 */
+.board-title {
+    font-size: 18px; /* 폰트 크기 */
+    font-weight: 500; /* 폰트 두께 */
+    color: #333333; /* 텍스트 색상 */
+    margin-right: 50px;
+}
+
+/* 게시글 날짜 스타일 */
+.board-date {
+    font-size: 15px; /* 폰트 크기 */
+    color: #888888; /* 텍스트 색상 */
+}
+
+.board-typeItem.active {
+    border-bottom: 5px solid black; /* 활성화된 상태의 배경색 */
+    color: black; /* 활성화된 상태의 텍스트 색상 */
+    font-size: 18px; /*글씨 크기 */
+    font-weight: 900; /* 글씨 두께  */
+}
+

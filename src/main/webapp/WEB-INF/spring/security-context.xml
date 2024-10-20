@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://www.springframework.org/schema/security" 
+ 	xsi:schemaLocation="http://www.springframework.org/schema/security 
+ 		http://www.springframework.org/schema/security/spring-security.xsd 
+		http://www.springframework.org/schema/beans 
+ 		http://www.springframework.org/schema/beans/spring-beans.xsd"> 
+
+<http use-expressions="true"> 
+	<form-login login-page="/user/login"
+		default-target-url="/user/complete" 
+		authentication-failure-url="/user/login?error" 
+		username-parameter="u_id" 
+		password-parameter="u_pw" 
+		authentication-success-handler-ref="loginSuccess" /> 
+		
+	<!--  form-login 
+	login-page="/user/login"						  - 원하는 login화면 설정 
+	default-target-url="/user/user" 				  - 로그인시 기본화면  
+	authentication-failure-url="/user/login?error"	  - 로그인 실패시 이동화면
+	username-parameter="id" 						  - 로그인 페이지에서 form태그를 통해서  날아올 데이터중  id로 인식할 데이터 key 값
+	password-parameter="password" 					  - 로그인 페이지에서 form태그를 통해서  날아올 데이터중  password로 인식할 데이터 key 값
+	authentication-success-handler-ref="loginSuccess" - 로그인 성공 후에 호출될 핸들러 빈을 지정합니다.
+	--> 
+	<!--해당 주소로 오면 session이 지워지고 로그아웃이 진행됨   --> 
+	<logout logout-url="/user/logout" invalidate-session="true"   /> 
+	<!--로그인  실패시 이동할 주소 --> 	
+	<access-denied-handler error-page="/user/login" />
+	
+	<!-- csrf disabled="true" /--><!-- 비활성화  -->
+	<!--  intercept-url pattern="/shop/**" access="permitAll" -->
+	<csrf disabled="true" />
+	<intercept-url pattern="/user/**" access="permitAll" />
+	<intercept-url pattern="/admin/admin" access="hasRole('ADMIN')" />
+	<!-- 
+	pattern에 경로를 정의하고 access에 해당 경로에  대한 접근 제한을 나타낸다 
+	permitAll 모든 사용자를 의미 
+	hasAnyRole(‘MEMBER,ADMIN’)  MEMBER,ADMIN 사용자 권한을 의미한다. 
+	hasRole('ADMIN') admin사용자 권한을 의미한다. 
+	--> 
+</http> 
+
+<beans:bean id="loginSuccess" class="com.board.Handler.LoginRedirectHandler"/>
+<!-- URL 설정 --> 
+	
+
+<!-- BCryptPasswordEncoder 클래스 빈 추가  -->
+<beans:bean id="bcryptPasswordEncoder" 
+	class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />		
+
+<!-- provider --> 
+<authentication-manager> 
+	<authentication-provider> 
+		<!-- 로그인 시 비밀번호를 암호화해서 DB에서 조회한 비밀번호와 비교 -->
+		<password-encoder ref="bcryptPasswordEncoder"/>
+		
+		<jdbc-user-service 
+			data-source-ref="dataSource" 
+			users-by-username-query="select u_id, u_pw, enabled from users where u_id = ?" 
+    		authorities-by-username-query="select u_id, authority from authorities where u_id = ?"  
+		/>
+	</authentication-provider> 
+</authentication-manager> 
+
+</beans:beans> 
+
