@@ -36,27 +36,27 @@
 # 기술 스택 ⚙
 
 ## Frotend
-![image](https://github.com/user-attachments/assets/59519084-0a14-45c5-8fb3-9219e600b6bf)
+
 
 <br/>
 
 ## Backend
-![image](https://github.com/user-attachments/assets/b5d04cd3-548f-4b6c-8443-ad512e63186c)
+
 
 <br/>
 
 ## Tools, Cooperation
-![image](https://github.com/user-attachments/assets/3c58014d-d840-4544-a698-91b05ca026fc)
+
 
 <br/>
 
 ## Server
-![image](https://github.com/user-attachments/assets/751b65cd-cdb2-4ab6-a3a7-b3b4627cd8eb)
+
 
 <br/>
 
 ## DB
-![image](https://github.com/user-attachments/assets/0cf6b563-bfd7-400f-969f-30c77731bb6d)
+
 
 <br/>
 
@@ -65,7 +65,7 @@
 
 # ERD 📝
 
-![image](https://github.com/user-attachments/assets/4cd84744-d2fd-42d6-8a39-ce085d069201)
+
 
 <br/><br/>
 # 주요 기능 💵
