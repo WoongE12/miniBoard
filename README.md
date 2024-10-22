@@ -9,7 +9,7 @@
 
 # 목차 📚
 - <a>프로젝트 소개</a>
-- <a>기술 스택
+- <a>개발 환경
 - <a>ERD
 - <a>주요 기능
 - <a>후기</a>
@@ -28,29 +28,11 @@
 <br/>
 <br/>
 
-# 기술 스택 ⚙
+# 개발 환경 ⚙
 
-## Frotend
-
-
-<br/>
-
-## Backend
-
-
-<br/>
-
-## Tools, Cooperation
-
-
-<br/>
-
-## Server
-
-
-<br/>
-
-## DB
+- <a>Java, Spring Legacy, Spring Security</a>
+- <a>Html, CSS, Java Script, jQuery</a>
+- <a>Oracle, MyBatis, Apache</a>
 
 
 <br/>
