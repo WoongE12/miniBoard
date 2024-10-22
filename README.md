@@ -92,13 +92,6 @@
   <a href="https://ㅇㅇ">기능보기</a>
   ![메인](https://github.com/user-attachments/assets/96d5116b-de8b-4316-95d8-664dc7cc3241)
   
-- **마이 페이지**
-  - 내 프로필, 회원 정보 수정, 회원 탈퇴를 진행 할 수 있습니다.<br>
-  <a href="https://ㅇㅇ">기능보기</a>
-
-- **관리자 페이지**
-  - 회원관리, 계정권한 관리 기능을 지원합니다.<br>
-  <a href="https://ㅇㅇ">기능보기</a>
     
 <br/>
 <br/>
