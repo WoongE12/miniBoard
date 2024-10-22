@@ -1,6 +1,7 @@
 # Board
 
 <h3 align="center"><strong>ㅇㅇ</strong></h3>
+![삭제](https://github.com/user-attachments/assets/aa669742-af75-48e9-968b-e26f190e7a17)
 
 
 - **프로젝트명** : 게시판 구현하기
